@@ -1,4 +1,4 @@
-package task02;
+package StarTriangle;
 
 public class StarTriangle {
     int width;

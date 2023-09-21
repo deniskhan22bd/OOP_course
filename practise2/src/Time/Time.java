@@ -1,4 +1,4 @@
-package task03;
+package Time;
 
 public class Time {
     int hour;

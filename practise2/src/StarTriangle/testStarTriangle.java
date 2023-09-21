@@ -1,4 +1,4 @@
-package task02;
+package StarTriangle;
 
 public class testStarTriangle {
     public static void main(String[] args){
