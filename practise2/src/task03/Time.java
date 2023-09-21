@@ -5,57 +5,43 @@ public class Time {
     int minute;
     int second;
     Time(int hour, int minute, int second){
-        this.hour = hourCheck(hour);
-        this.minute = minuteCheck(minute);
-        this.second = secondCheck(second);
+     if(timeCheck(hour, minute, second)) {
+      this.hour = hour;
+      this.minute = minute;
+      this.second = second;
+     }
+     else System.out.println("Error");
+    }
+    {
+     hour = 0;
+     minute = 0;
+     second = 0;
     }
 
-    private int hourCheck(int hour){
-        if(hour < 24) return hour;
-        else{
-            System.err.println("Error hour => 24");
-            return 0;
-        }
+    private boolean timeCheck(int hour, int minute, int second){
+        return hour >= 0 && hour < 24 && minute >= 0 && minute < 60 && second >= 0 && second < 60;
     }
-    private int minuteCheck(int minute){
-        if(minute < 60) return minute;
-        else{
-            System.err.println("Error minute >= 60");
-            return 0;
-
-        } 
-    }
-    private int secondCheck(int second){
-        if(second < 60) return second;
-        else{
-            System.err.println("Error second >= 60");
-            return 0;
-        } 
-    }
-
-
-    private String timeCheck(int time){
-        if(time < 0){
-            time += 12;
-            return "" + time;
-        };
-        if(time < 10) return "0" + time;
-        return "" + time;
+    private String check(int time) {
+     if(time >= 10) return "" + time;
+     else return "0"+time;
     }
     public String toUniversal(){
-        return timeCheck(hour) + ":" + timeCheck(minute) + ":" + timeCheck(second);
+        return check(hour) + ":" + check(minute) + ":" + check(second);
     }
     public String toStandart(){
-        if(hour - 12 < 0) return timeCheck(hour - 12) + ":" + timeCheck(minute) + ":" + timeCheck(second) + " AM";
-        else return timeCheck(hour - 12) + ":" + timeCheck(minute) + ":" + timeCheck(second) + " PM";
+        if(hour - 12 < 0) return check(hour) + ":" + check(minute) + ":" + check(second) + " AM";
+        else return check(hour - 12) + ":" + check(minute) + ":" + check(second) + " PM";
     }
 
 
 
     public void add(Time t){
-        hour = hourCheck(hour + t.hour);
-        minute = minuteCheck(minute + t.minute);
-        second = secondCheck(second + t.second);
+        if(timeCheck(hour + t.hour, minute + t.minute, second + t.second)) {
+         hour = hour + t.hour;
+         minute = minute + t.minute;
+         second = second + t.second;
+        }
+        else System.out.println("Error");
     }
 
-}   
+}
