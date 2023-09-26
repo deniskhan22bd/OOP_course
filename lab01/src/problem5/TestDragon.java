@@ -15,7 +15,7 @@ public class TestDragon {
         }
         //System.out.println(dragon.getPerson());
         if(dragon.willDragonEatOrNot() == true) System.out.println("No persons, all escaped");
-        else System.out.println("Yesssssssssssssss");
+        else System.out.println("Yesssssssssssssss, He will eat");
         scan.close();
     }
 }

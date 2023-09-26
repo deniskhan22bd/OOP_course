@@ -71,7 +71,7 @@ public class GradeBook {
 
     public Student getHighestGrade(){
         Student st = new Student();
-        st.setGrade(0);
+        st.setGrade(Integer.MIN_VALUE);
         for(Student s : student){
             if(st.getGrade() < s.getGrade()){
                 st = s;;
@@ -82,7 +82,7 @@ public class GradeBook {
 
     public Student getLowestGrade(){
         Student st = new Student();
-        st.setGrade(100);
+        st.setGrade(Integer.MAX_VALUE);
         for(Student s : student){
             if(st.getGrade() > s.getGrade()){
                 st = s;

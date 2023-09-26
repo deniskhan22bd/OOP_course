@@ -10,24 +10,22 @@ public class Dragon {
 
     public void kidnap(Person p){
         persons.add(p);
-        checkPersons();
     }
 
     public boolean willDragonEatOrNot(){
-        return persons.size() == 0;
-    }
-
-    private void checkPersons(){
-        if(persons.size() <= 1){
-            return;
-        }
-        for(int i = 0; i < persons.size() - 1; i++){
-            if(persons.elementAt(i).getGender() == Gender.Boy & persons.elementAt(i + 1).getGender() == Gender.Girl){
-                persons.removeElementAt(i + 1);
-                persons.removeElementAt(i);
+        int people = 0, pair = 0;
+        for(Person p : persons){
+            if(p.getGender() == Gender.Boy) people++;
+            else{
+                if(people == 0) return false;
+                else{
+                    people--;
+                    pair++;
+                }
             }
         }
 
+        return pair * 2 == persons.size();
     }
 
     public Vector<Person> getPerson(){
