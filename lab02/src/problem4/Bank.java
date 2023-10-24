@@ -23,23 +23,54 @@ public class Bank {
     }
 
     public void update(){
+        Scanner in = new Scanner(System.in);
         for(Account a : accounts){
+            System.out.println("Choose option: 1 - deposite, 2 - withdraw");
+            int x = in.nextInt();
+            if(x == 1){
+                System.out.println("Before:" + a);
+                System.out.print("Enter the value: ");
+                a.deposite(in.nextDouble());
+                System.out.println("After: " + a);;
+            }
+            else if(x == 2){                
+                System.out.println("Before:" + a);
+                System.out.print("Enter the value: ");
+                a.deposite(in.nextDouble());
+                System.out.println("After: " + a);;
+            }
+
             if(a.getClass() == SavingsAccount.class){
                 SavingsAccount s = (SavingsAccount)a;
-                System.out.println(s);
                 s.addInterest();
-                System.out.println(s);
+                System.out.println("After savings :" + s);
             }
             else if(a.getClass() == CheckingAccount.class){
                 CheckingAccount c = (CheckingAccount)a;
-                System.out.println(c);
                 c.deductFEE();
-                System.out.println(c);
-            }
-            else{
-                System.out.println(a);
+                System.out.println("After deduct :" + c);
             }
         }
+        in.close();
+    }
 
+    public void openAccount(Account account){
+        if(accounts.contains(account)){
+            System.out.println("Account exist");
+        }
+        else{
+            accounts.add(account);
+            System.out.println("Account created");
+        }
+    }
+
+    public void closeAccount(Account account){
+        if(accounts.contains(account)){
+            accounts.remove(account);
+            System.out.println("Account closed");
+        }
+        else{
+            System.out.println("Account not found");
+        }
     }
 }
