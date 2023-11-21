@@ -12,14 +12,14 @@ public class Restoraunt {
         this.name = name;
     }
 
-    public void servePizza(CanHavePizza chp){
-        chp.eatPizza();
-        if(chp instanceof Student){
-            Student s = (Student)chp;
+    public void servePizza(CanHavePizza eater){
+        eater.eatPizza();
+        if(eater instanceof Student){
+            Student s = (Student)eater;
             s.payPizza(100);
         }
-        else if(chp instanceof Person){
-            Person p = (Person)chp;
+        else if(eater instanceof Person){
+            Person p = (Person)eater;
             p.payPizza(100);
         }
     }

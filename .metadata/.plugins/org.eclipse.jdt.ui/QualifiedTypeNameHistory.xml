@@ -6,4 +6,6 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="com.sun.tools.sjavac.Package"/>
     <fullyQualifiedTypeName name="task01.Student"/>
+    <fullyQualifiedTypeName name="problem5.Time"/>
+    <fullyQualifiedTypeName name="Time.Time"/>
 </qualifiedTypeNameHistroy>
